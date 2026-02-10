@@ -1,6 +1,6 @@
 #include <iostream>
 
-#define caught(x) std::cout << __func__ << " caught a " << x << std::endl;
+#define caught(x) std::cout << __func__ << ":" << __LINE__ << " caught a " << x << std::endl;
 #define here std::cout << __func__ << ":" << __LINE__ << std::endl;
 
 void f1();
