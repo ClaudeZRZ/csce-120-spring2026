@@ -2,25 +2,17 @@
 #include <sstream>
 #include <string>
 
-int main() {
-    // read in expression
-    std::cout << "Enter the expression to calculate in one line: " << std::endl;
-    std::string line;
-    std::getline(std::cin, line);
+using std::string;
 
-    // extract operands and operator using an istd::stringstream
+double calculate(string line) {
     double first_number = 0, second_number = 0;
     char op = ' ';
 
     std::istringstream iss(line);
-    std::cout << "TODO: extract <first_number> <op> <second_number> from iss" << std::endl;
+    // TODO(student): extract <first_number> <op> <second_number> from iss
 
-    // compute the result of the expression based on op
     double result = 0;
-    std::cout << "TODO: compute result based on op symbol, allowed symbols are +, -, *, /" << std::endl;
+    // TODO(student): compute result based on op symbol, allowed symbols are +, -, *, /
 
-    // output result
-    std::cout << "result: " << result << std::endl;
-
-    return 0;
+    return result;
 }
