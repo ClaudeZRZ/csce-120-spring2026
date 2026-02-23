@@ -2,17 +2,17 @@
 #include <string>
 
 void print(const int& x, const std::string& label) {
-    std::cout << label << ":";
-    std::cout << "  address = " << &x;
-    std::cout << "  value = " << x;
+    std::cout << label << ":" << std::flush;
+    std::cout << "  address = " << &x << std::flush;
+    std::cout << "  value = " << x << std::flush;
     std::cout << std::endl;
 }
 
 void print(const int* x, const std::string& label) {
-    std::cout << label << ":";
-    std::cout << "  address = " << &x;
-    std::cout << "  value = " << x;
-    std::cout << "  points to = " << *x;
+    std::cout << label << ":" << std::flush;
+    std::cout << "  address = " << &x << std::flush;
+    std::cout << "  value = " << x << std::flush;
+    std::cout << "  points to = " << *x << std::flush;
     std::cout << std::endl;
 }
 
