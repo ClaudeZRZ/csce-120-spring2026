@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cassert>
 
 /**
  * swaps the values of `a` and `b`
@@ -22,6 +23,8 @@ int main() {
     std::cout << "after swap: " << std::endl;
     std::cout << "x: " << x << std::endl;
     std::cout << "y: " << y << std::endl;
+
+    assert(x == 7 && y == 11);
 
     return 0;
 }
