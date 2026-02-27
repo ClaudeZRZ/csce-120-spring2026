@@ -32,6 +32,7 @@ int main() {
         player.set_name(p.at(1));
         player.set_jersey_number(std::stoi(p.at(0)));
         player.set_position(p.at(2));
+
         aggies.add_player(player);
     }
 
