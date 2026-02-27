@@ -5,3 +5,5 @@
 * [Week 3](week_3) - OO Concepts (String), Function Templates, Identifying Errors, 2D Vectors
 * [Week 4](week_4) - Debugging, Software Developement Cycle
 * [Week 5](week_5) - Exceptions, IO Streams
+* [Week 6](week_6) - Input/Output Streams
+* [Week 7](week_7) - Functions with References and Pointers, Class Design, Writing Classes
