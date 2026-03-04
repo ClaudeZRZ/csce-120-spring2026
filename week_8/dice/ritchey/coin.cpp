@@ -1,6 +1,6 @@
 #include "coin.h"
 
-Coin::Coin() : die{1,2} {}
+Coin::Coin() : die{1, 2} {}
 
 void Coin::flip() {
     die.roll();
@@ -11,7 +11,7 @@ unsigned Coin::value() const {
 }
 
 std::ostream& operator<<(std::ostream& os, const Coin& coin) {
-    switch(coin.value()) {
+    switch (coin.value()) {
         case HEADS:
             return os << "heads";
         case TAILS:

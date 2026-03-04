@@ -1,5 +1,6 @@
 #include "test_helpers.h"
 
+#include <iostream>
 #include "dice_cup.h"
 
 int main() {
@@ -31,7 +32,7 @@ int main() {
     unsigned total = 0;
     for (int i = 5; i <= 34; i++) {
         total += count[i];
-        std::cout << "count["<<i<<"]="<<count[i]<<std::endl;
+        std::cout << "count[" << i << "]=" << count[i] << std::endl;
         expect_between(count[i], 1, 99999);
     }
     expect_equal(total, 100000);

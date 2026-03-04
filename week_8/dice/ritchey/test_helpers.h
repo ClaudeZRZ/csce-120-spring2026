@@ -94,7 +94,7 @@ std::cout << std::endl;\
     tests_failed++;\
 }
 
-#define expect_throw(expression) try{\
+#define expect_throw(expression) try {\
     expression;\
     std::cout << "[FAIL] " << __func__ << ":" << __LINE__ << "\n";\
     std::cout << "expected " << #expression << " to throw an exception, but nothing thrown" << std::endl;\
