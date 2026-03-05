@@ -7,7 +7,7 @@ int main() {
     start_tests
 
     DiceCup cup;
-    expect_equal(cup.value(), 0);
+    expect_equal(cup.value(), 0u);
 
     cup.add_dice({3, 6});
     cup.add_dice({2, 8});
@@ -35,7 +35,7 @@ int main() {
         std::cout << "count[" << i << "]=" << count[i] << std::endl;
         expect_between(count[i], 1, 99999);
     }
-    expect_equal(total, 100000);
+    expect_equal(total, 100000u);
 
     end_tests
 

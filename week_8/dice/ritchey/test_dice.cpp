@@ -27,9 +27,9 @@ void test_1d6() {
     Dice dice_1d6(1, 6);
 
     // default should be snake eyes (all 1s)
-    expect_equal(dice_1d6.count(), 1);
-    expect_equal(dice_1d6.sides(), 6);
-    expect_equal(dice_1d6.value(), 1);
+    expect_equal(dice_1d6.count(), 1u);
+    expect_equal(dice_1d6.sides(), 6u);
+    expect_equal(dice_1d6.value(), 1u);
 
     dice_1d6.roll();
 
@@ -46,9 +46,9 @@ void test_2d10() {
     Dice dice_2d10(2, 10);
 
     // default should be snake eyes (all 1s)
-    expect_equal(dice_2d10.count(), 2);
-    expect_equal(dice_2d10.sides(), 10);
-    expect_equal(dice_2d10.value(), 2);
+    expect_equal(dice_2d10.count(), 2u);
+    expect_equal(dice_2d10.sides(), 10u);
+    expect_equal(dice_2d10.value(), 2u);
 
     dice_2d10.roll();
 
@@ -65,9 +65,9 @@ void test_20d2() {
     Dice dice_20d2(20, 2);
 
     // default should be snake eyes (all 1s)
-    expect_equal(dice_20d2.count(), 20);
-    expect_equal(dice_20d2.sides(), 2);
-    expect_equal(dice_20d2.value(), 20);
+    expect_equal(dice_20d2.count(), 20u);
+    expect_equal(dice_20d2.sides(), 2u);
+    expect_equal(dice_20d2.value(), 20u);
 
     dice_20d2.roll();
 

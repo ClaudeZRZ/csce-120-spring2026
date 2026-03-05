@@ -28,7 +28,7 @@ int main() {
                 break;
         }
     }
-    expect_equal(heads + tails, 1000);
+    expect_equal(heads + tails, 1000u);
     expect_between(heads, 1, 999);
     expect_between(tails, 1, 999);
 

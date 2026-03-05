@@ -1,4 +1,5 @@
 #include <vector>
+#include <numeric>
 #include "dice_cup.h"
 
 using std::vector;
@@ -15,12 +16,12 @@ void DiceCup::roll() {
     }
 }
 
+unsigned operator+(unsigned lhs, const Dice& rhs) {
+    return lhs + rhs.value();
+}
+
 unsigned DiceCup::value() const {
-    unsigned v = 0;
-    for (const Dice& d : dice) {
-        v += d.value();
-    }
-    return v;
+    return std::accumulate(dice.begin(), dice.end(), 0);
 }
 
 std::ostream& operator<<(std::ostream& os, const DiceCup& cup) {
