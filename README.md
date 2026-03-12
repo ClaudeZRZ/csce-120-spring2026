@@ -7,3 +7,5 @@
 * [Week 5](week_5) - Exceptions, IO Streams
 * [Week 6](week_6) - Input/Output Streams
 * [Week 7](week_7) - Functions with References and Pointers, Class Design, Writing Classes
+* [Week 8](week_8) - Writing Classes
+* [Week 9](week_9) - Testing and Debugging Classes, Dynamic Memory, C-Style 1D Arrays
