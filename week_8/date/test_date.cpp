@@ -1,29 +1,54 @@
 #include <iostream>
+#include <sstream>
 #include "date.h"
 #include "test_helpers.h"
 
 int main() {
-    // test constructor
-    expect_throw(Date(-1, 6, 6));        // invalid year
-    expect_throw(Date(2000, -1, 6));     // invalid month
-    expect_throw(Date(2000, 13, 6));     // invalid month
-    expect_throw(Date(2000, 6, 0));      // invalid day
-    expect_throw(Date(2000, 6, 31));     // invalid day
-    expect_throw(Date(1582, 10, 14));    // before the gregorian calendar began
-    expect_throw(Date(1900, 2, 29));     // not a leap year
-    expect_no_throw(Date(2000, 2, 29));  // a once every 400 years leap year
-    expect_no_throw(Date(2025, 10, 18)); // a valid date
+    // TODO(student): [bonus^2] write tests
+    {
+        Date date(2025, 10, 20);
+        // put into stream
+        std::ostringstream oss;
+        oss << date;
+        // get string from stream
+        expect_equal(oss.str(), "20 October 2025");
+    }
 
-    // test operator==
-    expect(Date(2025, 10, 18) == Date(2025, 10, 18));
-    expect(!(Date(2025, 10, 18) == Date(2025, 10, 19)));
-    expect(!(Date(2025, 10, 18) == Date(2025, 9, 18)));
-    expect(!(Date(2025, 10, 18) == Date(2026, 10, 18)));
+    {
+        // end of month
+        Date date(2025, 10, 31);
+        ++date;
+        expect_equal(date.get_day(), 1);
+        expect_equal(date.get_month(), 11);
+        expect_equal(date.get_year(), 2025);
+    }
 
-    // test operator<
-    expect(Date(2025, 10, 18) < Date(2025, 12, 19));
-    expect(Date(1582, 10, 15) < Date(5883517, 1, 1));
-    expect(Date(2025, 10, 31) < Date(2025, 12 ,31));  // but OCT 31 == DEC 25 ... get it? =)
+    {
+        // end of year
+        Date date(2025, 12, 31);
+        ++date;
+        expect_equal(date.get_day(), 1);
+        expect_equal(date.get_month(), 1);
+        expect_equal(date.get_year(), 2026);
+    }
+
+    {
+        // leap year
+        Date date(2000, 02, 28);
+        ++date;
+        expect_equal(date.get_day(), 29);
+        expect_equal(date.get_month(), 2);
+        expect_equal(date.get_year(), 2000);
+    }
+
+        {
+        // not a leap year
+        Date date(2025, 02, 28);
+        ++date;
+        expect_equal(date.get_day(), 1);
+        expect_equal(date.get_month(), 3);
+        expect_equal(date.get_year(), 2025);
+    }
 
     return 0;
 }

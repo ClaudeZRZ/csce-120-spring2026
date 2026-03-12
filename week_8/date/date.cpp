@@ -1,4 +1,5 @@
 #include <stdexcept>
+#include <string>
 #include "date.h"
 
 // assume gregorian calendar
@@ -11,7 +12,9 @@ void validate_year(int year) {
 }
 
 void validate_month(int year, int month) {
-    if (month < 1 || month > 12 || (year == 1582 && month < 10)) {
+    if (month < January
+        || month > December
+        || (year == 1582 && month < October)) {
         throw std::invalid_argument("invalid month");
     }
 }
@@ -20,12 +23,32 @@ bool is_leap_year(int year) {
     return year % 4 == 0 && (year % 100 > 0 || year % 400 == 0);
 }
 
+int days_per_month(int month, int year = 1) {
+    switch (month) {
+        case Febraury:
+            return is_leap_year(year) ? 29 : 28;
+        case April:
+        case June:
+        case Septemeber:
+        case November:
+            return 30;
+        case January:
+        case March:
+        case May:
+        case July:
+        case August:
+        case October:
+        case December:
+            return 31;
+        default:
+            return 0;
+    }
+}
+
 void validate_day(int year, int month, int day) {
-    int DAYS_PER_MONTH[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-    if (day < 1 || day > DAYS_PER_MONTH[month] || (year == 1582 && month == 10 && day < 15)) {
-        if (month == 2 && day == 29 && is_leap_year(year)) {
-            return;
-        }
+    if (day < 1
+        || day > days_per_month(month, year)
+        || (year == 1582 && month == October && day < 15)) {
         throw std::invalid_argument("invalid day");
     }
 }
@@ -44,6 +67,46 @@ bool Date::operator==(const Date& rhs) const {
 
 bool Date::operator<(const Date& rhs) const {
     return this->year < rhs.year
-        || (this->year == rhs.year && this->month < rhs.month)
-        || (this->year == rhs.year && this->month == rhs.month && this->day < rhs.day);
+        || (this->year == rhs.year
+            && this->month < rhs.month)
+        || (this->year == rhs.year
+            && this->month == rhs.month
+            && this->day < rhs.day);
+}
+
+std::string month_name(int month) {
+    switch (month) {
+        case January: return "January";
+        case Febraury: return "February";
+        case March: return "March";
+        case April: return "April";
+        case May: return "May";
+        case June: return "June";
+        case July: return "July";
+        case August: return "August";
+        case Septemeber: return "September";
+        case October: return "October";
+        case November: return "November";
+        case December: return "December";
+        default: return "InvalidMonth";
+    }
+}
+
+std::ostream& operator<<(std::ostream& os, const Date& date) {
+    return os << date.get_day()
+        << " " << month_name(date.get_month())
+        << " " << date.get_year();
+}
+
+Date& Date::operator++() {
+    this->day += 1;
+    if (this->day > days_per_month(this->month, this->year)) {
+        this->day = 1;
+        this->month += 1;
+        if (this->month > December) {
+            this->month = January;
+            this->year += 1;
+        }
+    }
+    return *this;
 }

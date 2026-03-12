@@ -1,8 +1,5 @@
-// Let's make a Date class.
-// It should only allow valid dates and it can compare if dates are equal or less than.
-
-#ifndef DATE_H_
-#define DATE_H_
+#ifndef WEEK9_DATE_DATE_H_
+#define WEEK9_DATE_DATE_H_
 
 #include <iostream>
 
@@ -11,7 +8,7 @@ class Date {
     int month;
     int day;
 
-public:
+ public:
     Date(int year, int month, int day);
 
     bool operator==(const Date& rhs) const;
@@ -20,8 +17,27 @@ public:
     int get_year() const { return year; }
     int get_month() const { return month; }
     int get_day() const { return day; }
+
+    // TODO(student): [bonus] implement increment (++) operator
+    Date& operator++();
 };
 
-// std::ostream& operator<<(std::ostream&, const Date&);
+enum Month {
+    January = 1,
+    Febraury,
+    March,
+    April,
+    May,
+    June,
+    July,
+    August,
+    Septemeber,
+    October,
+    November,
+    December
+};
 
-#endif  // DATE_H_
+// TODO(student): define this operator
+std::ostream& operator<<(std::ostream&, const Date&);
+
+#endif  // WEEK9_DATE_DATE_H_
