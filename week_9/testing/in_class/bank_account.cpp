@@ -24,7 +24,7 @@ int main() {
     assert(account.balance() == 95.0);   // Then my account balance should be $95
 
     account.withdraw(200.0);             // When I try to withdraw $200
-    // expected behavior?                // Then ?
+    // TODO(student): expected behavior? // Then ?
 
     std::cout << "All tests passed!\n";
     return 0;
