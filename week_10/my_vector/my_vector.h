@@ -16,23 +16,6 @@ class MyVector {
     MyVector() : array_{nullptr}, capacity_{0}, size_{0} {}
 
     /**
-     * Destruct the vector.
-     */
-    ~MyVector() { delete[] array_; }
-
-    /**
-     * Construct a copy of a vector.
-     * Default is shallow copy.
-     */
-    MyVector(const MyVector& other) = default;
-
-    /**
-     * Copy a vector by assignment.
-     * Default is shallow copy.
-     */
-    MyVector& operator=(const MyVector& other) = default;
-
-    /**
      * The underlying array.
      * For testing purposes only.
      */
